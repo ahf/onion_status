@@ -32,6 +32,23 @@ Check if the default settings seems reasonable using:
 
     /SET onion_status
 
+It is important that the `onion_status_channel` setting is set correctly. To
+find the correct value for this setting go to your `#tor-dev` window and type:
+
+    /WINDOW
+
+Irssi will now display the following information:
+
+    Window  : #xxx
+    Size    : XxY
+    Level   : NONE
+    Server  : OFTC
+    Items   : Name                           Server tag
+     CHANNEL: #tor-dev                       OFTC
+
+The value of `onion_status_channel` should be of the form `{Server Tag}/{Channel}`,
+so in the case above it should be set to `OFTC/#tor-dev` using `/SET onion_status_channel OFTC/#tor-dev`.
+
 ### Create status window inside Irssi
 
 If you want to use the status window inside of Irssi create a new empty window
