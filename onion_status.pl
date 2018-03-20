@@ -41,7 +41,8 @@ sub handle_status_message {
     if ($window) {
         my $level = MSGLEVEL_CRAP;
 
-        if ($highlight) {
+        # We are not interested in highlighting our own messages.
+        if ($highlight && $server->{'nick'} ne $nickname) {
             $level = $level | MSGLEVEL_HILIGHT;
         }
 
