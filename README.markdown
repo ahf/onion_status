@@ -2,21 +2,29 @@ Onion Status
 ============
 
 This repository contains an Irssi script to help with the daily status updates
-in `#tor-dev` on OFTC from the Tor project's network team members.
+in `#tor-dev` on OFTC.
 
-The script supports the following features:
+Features:
 
-- Log daily status messages to a log file.
-- Log daily status messages to a status window inside Irssi.
+- Log the daily status messages to a log file.
+- Log the daily status messages to a special status window inside Irssi.
 - Allow the user to enable a filter such that only messages from user approved
-  members are logged.
+  members are logged in case of abuse.
 
 ## Usage
 
-Download the `onion_status.pl` script and store it as
-`~/.irssi/scripts/onion_status.pl`. Create a symlink from
-`~/.irssi/scripts/autorun/onion_status.pl` to
-`~/.irssi/scripts/onion_status.pl` and load the script inside Irssi using:
+Download the `onion_status.pl` script and store it inside `~/.irssi/scripts/`.
+Create a symlink from `~/.irssi/scripts/autorun/onion_status.pl` to
+`~/.irssi/scripts/onion_status.pl`:
+
+    $ cd ~/.irssi/scripts/
+    $ wget https://raw.githubusercontent.com/ahf/onion_status/master/onion_status.pl
+
+    ... check that the script looks legit ...
+
+    $ ln -s ../onion_status.pl autorun/
+
+Load the script inside Irssi using:
 
     /SCRIPT LOAD onion_status.pl
 
@@ -35,14 +43,15 @@ using:
 ## Settings
 
 - `onion_status_window` (Default: `tor-dev-status`): This setting defines the
-  name of the window inside of Irssi where status messages are logged to.
+  window name where status messages are logged to.
 
 - `onion_status_channel` (Default: `OFTC/#tor-dev`): This setting defines the
-  name of the network and the nel that we are interested in tracking status
-  updates in.
+  name of the network and the name of the channel that we are interested in
+  tracking status updates in.
 
 - `onion_status_highlight` (Default: `ON`): Do we want the window to get
-  highlighted when a new status message arrives?
+  highlighted when a new status message arrives? We only highlight messages
+  from other people - not our own status updates.
 
 - `onion_status_members_only` (Default: `ON`): Do we only want to log status
   updates from nicknames in `onion_status_members`?
