@@ -5,7 +5,7 @@ use POSIX qw(strftime);
 
 use Irssi;
 
-our $VERSION = "1.0";
+our $VERSION = "1.1";
 our %IRSSI = (
     authors     => 'Alexander Færøy',
     contact     => 'ahf@torproject.org',
@@ -41,9 +41,17 @@ sub handle_status_message {
     if ($window) {
         my $level = MSGLEVEL_CRAP;
 
-        # We are not interested in highlighting our own messages.
-        if ($highlight && $server->{'nick'} ne $nickname) {
-            $level = $level | MSGLEVEL_HILIGHT;
+        # Highlight status messages.
+        if ($highlight) {
+            $level |= MSGLEVEL_HILIGHT;
+        }
+
+        # We are not interested in highlighting our own messages and we also
+        # don't want to trigger an 'act' event in the act bar for our own
+        # messages.
+        if ($server->{'nick'} eq $nickname) {
+            $level |= MSGLEVEL_NOHILIGHT;
+            $level |= MSGLEVEL_NO_ACT;
         }
 
         $window->printformat($level, 'onion_status_message', $nickname, $message);
