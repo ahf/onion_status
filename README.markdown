@@ -22,6 +22,7 @@ Create a symlink from `~/.irssi/scripts/autorun/onion_status.pl` to
 
     ... check that the script looks legit ...
 
+    $ mkdir autorun/
     $ ln -s ../onion_status.pl autorun/
 
 Load the script inside Irssi using:
