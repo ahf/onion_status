@@ -90,7 +90,7 @@ sub signal_own_action {
 
 Irssi::settings_add_str('onion_status', 'onion_status_window', 'tor-dev-status');
 Irssi::settings_add_str('onion_status', 'onion_status_channel', 'OFTC/#tor-dev');
-Irssi::settings_add_str('onion_status', 'onion_status_members', 'ahf asn armadev catalyst dgoulet isabela isis komlo mikeperry nickm pastly teor teor4');
+Irssi::settings_add_str('onion_status', 'onion_status_members', 'ahf asn armadev catalyst dgoulet gaba isabela komlo mikeperry nickm pastly teor teor4');
 Irssi::settings_add_str('onion_status', 'onion_status_log_file', '~/.irssi/status.log');
 Irssi::settings_add_str('onion_status', 'onion_status_log_timestamp', '%Y/%m/%d %H:%M:%S');
 Irssi::settings_add_bool('onion_status', 'onion_status_log', 1);
